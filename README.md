@@ -143,6 +143,16 @@ For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
 - ✅ `.nvmrc` - Node.js version specification
 - ✅ URL rewrites for client-side routing
 - ✅ Optimized build settings
+- ✅ SEO metadata (Open Graph, Twitter Cards)
+- ✅ PWA manifest for mobile app-like experience
+- ✅ `robots.txt` for search engine crawling
+
+### After Deployment
+
+Once deployed, update the following URLs in `index.html`:
+
+- Replace `https://pawtato-heroes-stats.vercel.app/` with your actual Vercel URL
+- Add an Open Graph image at `/public/og-image.png` (1200x630px recommended)
 
 ## 📄 License
 

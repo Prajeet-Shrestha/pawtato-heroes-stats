@@ -46,6 +46,23 @@ After deployment, your dashboard will be available at:
 - Production: `https://your-project.vercel.app`
 - Preview deployments for each git push
 
+### Update Metadata URLs
+
+Once you know your production URL, update `index.html`:
+
+1. Replace all instances of `https://pawtato-heroes-stats.vercel.app/` with your actual URL
+2. Update Open Graph and Twitter card URLs
+
+### Add Social Media Image (Optional)
+
+Create an Open Graph image for better social media sharing:
+
+1. Create a 1200x630px image showcasing your dashboard
+2. Save it as `/public/og-image.png`
+3. Redeploy
+
+This will make your dashboard look great when shared on Twitter, Discord, etc!
+
 ## Performance Notes
 
 The app includes a large JSON data file (~7MB). This is expected and the app will:
