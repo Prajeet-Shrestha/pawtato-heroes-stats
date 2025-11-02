@@ -26,6 +26,7 @@ A beautiful, interactive stats dashboard for tracking Pawtato Heroes NFT minting
 - **Weekly Hero Minted** (Bar Chart): Shows the weekly distribution of minted heroes
 - **Transaction Timeline** (Line Chart): Minute-by-minute transaction count showing minting activity over time
 - **Phase-wise Minting Timeline** (Multi-Line Chart): Shows minting activity for each phase over time with different colored lines
+- **SUI Paid Amount Timeline** (Line Chart): Minute-by-minute SUI payment amounts showing revenue flow over time
 - **Paid vs Unpaid Heroes** (Pie Chart): Distribution between paid and unpaid heroes
 - **Heroes by Phase** (Pie Chart): Distribution of heroes across different phases
 - **Top 10 Players** (Bar Chart): Most active players by hero count

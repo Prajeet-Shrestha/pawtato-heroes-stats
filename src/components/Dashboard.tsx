@@ -217,6 +217,40 @@ const Dashboard: React.FC = () => {
     return { labels, datasets };
   }, [heroMinted.phase_time_chart]);
 
+  // Process SUI paid amount timeline data - group by minute
+  const suiPaidTimelineData = useMemo(() => {
+    const minuteSuiAmount: Map<number, { label: string; amount: number }> = new Map();
+    let totalSuiPaid = 0;
+
+    heroMinted.sui_paid_amount_chart.forEach(({ amount, timestamp }) => {
+      totalSuiPaid += amount;
+      const date = new Date(timestamp);
+      // Round down to the minute
+      const minuteTimestamp = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()).getTime();
+
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const hours = date.getHours().toString().padStart(2, "0");
+      const minutes = date.getMinutes().toString().padStart(2, "0");
+      const label = `${monthNames[date.getMonth()]} ${date.getDate()}, ${hours}:${minutes}`;
+
+      if (minuteSuiAmount.has(minuteTimestamp)) {
+        const existing = minuteSuiAmount.get(minuteTimestamp)!;
+        existing.amount += amount;
+      } else {
+        minuteSuiAmount.set(minuteTimestamp, { label, amount });
+      }
+    });
+
+    // Sort by timestamp
+    const sortedEntries = Array.from(minuteSuiAmount.entries()).sort((a, b) => a[0] - b[0]);
+
+    return {
+      labels: sortedEntries.map(([, data]) => data.label),
+      data: sortedEntries.map(([, data]) => data.amount),
+      totalSui: totalSuiPaid,
+    };
+  }, [heroMinted.sui_paid_amount_chart]);
+
   return (
     <div className='dashboard'>
       <header className='dashboard-header'>
@@ -268,6 +302,27 @@ const Dashboard: React.FC = () => {
       <section className='charts-section'>
         <div className='chart-full-width'>
           <MultiLineChart title='Phase-wise Minting Timeline (By Minute)' labels={phaseTimelineData.labels} datasets={phaseTimelineData.datasets} />
+        </div>
+      </section>
+
+      {/* SUI Paid Amount Timeline */}
+      <section className='charts-section'>
+        <div className='chart-full-width'>
+          <div className='timeline-info-container'>
+            <div className='timeline-info'>
+              <div className='timeline-info-item'>
+                <span className='timeline-info-label'>Total SUI Paid:</span>
+                <span className='timeline-info-value'>{suiPaidTimelineData.totalSui.toLocaleString()} SUI</span>
+              </div>
+            </div>
+          </div>
+          <LineChart
+            title='SUI Paid Amount Timeline (By Minute)'
+            labels={suiPaidTimelineData.labels}
+            data={suiPaidTimelineData.data}
+            backgroundColor='rgba(34, 197, 94, 0.2)'
+            borderColor='rgba(34, 197, 94, 1)'
+          />
         </div>
       </section>
 

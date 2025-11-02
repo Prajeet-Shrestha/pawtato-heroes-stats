@@ -15,6 +15,11 @@ export interface HeroMintedEvent {
   phase: number;
 }
 
+export interface SuiPaidAmountEntry {
+  amount: number;
+  timestamp: number;
+}
+
 export interface HeroMintedData {
   total_hero_minted: number;
   total_sui_paid: number;
@@ -24,6 +29,7 @@ export interface HeroMintedData {
   player_sui_paid_chart: Record<string, number>;
   tx_time_chart: Record<string, number>;
   phase_time_chart: Record<number, number[]>;
+  sui_paid_amount_chart: SuiPaidAmountEntry[];
 }
 
 export interface MetricsData {
