@@ -154,6 +154,10 @@ Once deployed, update the following URLs in `index.html`:
 - Replace `https://pawtato-heroes-stats.vercel.app/` with your actual Vercel URL
 - Add an Open Graph image at `/public/og-image.png` (1200x630px recommended)
 
+## 🙏 Credits
+
+Created by [Vendetta](https://vendettagame.xyz/)
+
 ## 📄 License
 
 MIT

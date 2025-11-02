@@ -353,6 +353,16 @@ const Dashboard: React.FC = () => {
           />
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className='dashboard-footer'>
+        <p>
+          Created by{" "}
+          <a href='https://vendettagame.xyz/' target='_blank' rel='noopener noreferrer' className='footer-link'>
+            Vendetta
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };
