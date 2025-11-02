@@ -1,0 +1,17 @@
+{
+  "name": "Pawtato Heroes Minting Analytics",
+  "short_name": "Pawtato Stats",
+  "description": "Real-time analytics dashboard for Pawtato Heroes NFT minting",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+

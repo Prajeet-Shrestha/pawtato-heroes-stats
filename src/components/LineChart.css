@@ -1,0 +1,18 @@
+.line-chart-container {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.line-chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 16px 0;
+}
+
+.line-chart-wrapper {
+  height: 300px;
+  position: relative;
+}
